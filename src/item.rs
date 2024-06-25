@@ -2,6 +2,7 @@ use crate::function::Function;
 use crate::module::Module;
 
 use crate::r#enum::Enum;
+use crate::r#extern::Extern;
 use crate::r#impl::Impl;
 use crate::r#struct::Struct;
 use crate::r#trait::Trait;
@@ -11,6 +12,7 @@ pub enum Item {
     Module(Module),
     Struct(Struct),
     Function(Function),
+    Extern(Extern),
     Trait(Trait),
     Enum(Enum),
     Impl(Impl),

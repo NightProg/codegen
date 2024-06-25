@@ -10,6 +10,7 @@ use crate::item::Item;
 use crate::module::Module;
 
 use crate::r#enum::Enum;
+use crate::r#extern::Extern;
 use crate::r#impl::Impl;
 use crate::r#struct::Struct;
 use crate::r#trait::Trait;
@@ -160,6 +161,22 @@ impl Scope {
     /// Push a function definition
     pub fn push_fn(&mut self, item: Function) -> &mut Self {
         self.items.push(Item::Function(item));
+        self
+    }
+
+    /// Push a new extern definition, returning a mutable reference to it.
+    pub fn new_extern(&mut self) -> &mut Extern {
+        self.items.push(Item::Extern(Extern::new()));
+
+        match *self.items.last_mut().unwrap() {
+            Item::Extern(ref mut v) => v,
+            _ => unreachable!(),
+        }
+    }
+
+    /// Push an extern definition
+    pub fn push_extern(&mut self, item: Extern) -> &mut Self {
+        self.items.push(Item::Extern(item));
         self
     }
 
