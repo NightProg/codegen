@@ -270,6 +270,7 @@ impl Scope {
                 Item::Trait(ref v) => v.fmt(fmt)?,
                 Item::Enum(ref v) => v.fmt(fmt)?,
                 Item::Impl(ref v) => v.fmt(fmt)?,
+                Item::Extern(ref v) => v.fmt(fmt)?,
                 Item::Raw(ref v) => {
                     write!(fmt, "{}\n", v)?;
                 }

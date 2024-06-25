@@ -148,6 +148,12 @@ impl Function {
         self
     }
 
+    /// Remove the function body.
+    pub fn no_body(&mut self) -> &mut Self {
+        self.body = None;
+        self
+    }
+
     /// Add a `where` bound to the function.
     pub fn bound<T>(&mut self, name: &str, ty: T) -> &mut Self
     where
